@@ -358,7 +358,7 @@ describe Sneakers::Worker do
       header = Object.new
 
       mock(handler).timeout(header, nil, "msg")
-      mock(w.logger).error(/error="execution expired" error_class=Sneakers::JobTimeout backtrace=/)
+      mock(w.logger).error(/error="execution expired, timeout_after=0.5" error_class=Sneakers::JobTimeout backtrace=/)
 
       w.do_work(header, nil, "msg", handler)
     end

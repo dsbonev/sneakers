@@ -61,6 +61,7 @@ module Sneakers
             end
           end
         rescue Sneakers::JobTimeout => ex
+          ex.timeout_after = @timeout_after
           res = :timeout
           worker_error(ex, log_msg: log_msg(msg), message: msg)
         rescue => ex
